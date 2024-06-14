@@ -45,7 +45,7 @@ service imap {
 ```
 
 
-### Fail2Ban Configuration for Dovecot
+### Dovecot için Fail2Ban Yapılandırması
 
 Dovecot için bir filtre oluşturun:
 
