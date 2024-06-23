@@ -1,5 +1,8 @@
 # Dovecot-Fail2ban-Security
 
+![image](https://github.com/ugurcomptech/Dovecot-Fail2ban-Security/assets/133202238/7efad4dc-971d-4990-84ab-68a865b5c9bf)
+
+
 Bu proje, IMAP ve POP3 hizmetlerine yönelik kaba kuvvet saldırılarına karşı koruma sağlamak için Dovecot'u Fail2Ban ile entegre ederek bir e-posta sunucusunun güvenliğini sağlamayı amaçlamaktadır.
 
 
