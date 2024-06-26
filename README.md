@@ -205,6 +205,41 @@ tail -f /var/log/fail2ban.log
 ```
 
 
+## IP Whitelist
+
+İstemiş olduğunuz IP adresinden gelen istekleri engellememek için bir kural oluşturabilirsiniz. 
+
+Fail2Ban'ın jail.local dosyasını düzenleyerek ignoreip parametresini ekleyelim:
+
+```
+sudo nano /etc/fail2ban/jail.local
+```
+
+
+Dosyanın içine aşağıdaki gibi ignoreip parametresini ekleyin:
+
+
+```
+[DEFAULT]
+ignoreip = 127.0.0.1/8 ::1 192.168.1.100   ; Engellenmeyecek IP adreslerini buraya ekleyiniz.
+```
+
+Bu örnekte, ignoreip parametresi altında 192.168.1.100 IP adresi belirtilmiştir. Böylece, fail2ban bu IP adresini engellemeyecektir.
+
+Değişiklikleri uydukladıktan sonra servisimizi yeniden başlatalım.
+
+```
+sudo systemctl restart fail2ban
+```
+
+
+Eklemiş olduğum Ip adresini test ettiğimde engellemedğini görüntülemiş olldum.
+
+```
+2024-06-26 22:54:36,621 fail2ban.filter         [113300]: INFO    [dovecot] Ignore 88.241.72.246 by ip
+2024-06-26 22:54:52,648 fail2ban.filter         [113300]: INFO    [dovecot] Ignore 88.241.72.246 by ip
+```
+
 
 ## Katkı
 
