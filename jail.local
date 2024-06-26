@@ -6,3 +6,13 @@ logpath = /var/log/mail.log
 maxretry = 2
 findtime = 600
 bantime = 3600
+
+
+[snappymail]
+enabled = true
+port = http,https
+filter = snappymail
+logpath = /usr/local/lsws/logs/access.log
+maxretry = 5
+findtime = 600
+bantime = 3600
