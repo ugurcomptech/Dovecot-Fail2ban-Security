@@ -1,0 +1,8 @@
+[dovecot]
+enabled = true
+port = imaps,pop3,pop3s
+filter = dovecot
+logpath = /var/log/mail.log
+maxretry = 2
+findtime = 600
+bantime = 3600
