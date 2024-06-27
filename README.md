@@ -276,7 +276,7 @@ Status for the jail: dovecot
    `- Banned IP list:
 ```
 
-`sudo fail2ban-client set dovecot banip <IP_Adresi>` komutunu yasarak istemiş olduğunuz IP adresini yasaklayabilirsiniz.
+`sudo fail2ban-client set dovecot banip <IP_Adresi>` komutunu yazarak istemiş olduğunuz IP adresini yasaklayabilirsiniz.
 
 ```
 root@ubuntu:~# sudo fail2ban-client set dovecot banip 212.51.4.78
