@@ -240,6 +240,63 @@ Eklemiş olduğum Ip adresini test ettiğimde engellemedğini görüntülemiş o
 2024-06-26 22:54:52,648 fail2ban.filter         [113300]: INFO    [dovecot] Ignore 88.241.72.246 by ip
 ```
 
+## Manuel BAN / UNBAN
+
+Manuel olarak IP adresi banlamak istiyor iseniz veya IP banı kaldırmak istiyor iseniz aşağıdaki adımlar izleyiniz.
+
+`sudo fail2ban-client status dovecot` komutu ile **dovecot** Jailinde hangi IP adresleri yasaklanmış onları görüntülüyoruz.
+
+```
+root@ubuntu:~# sudo fail2ban-client status dovecot
+Status for the jail: dovecot
+|- Filter
+|  |- Currently failed: 0
+|  |- Total failed:     2
+|  `- File list:        /var/log/mail.log
+`- Actions
+   |- Currently banned: 1
+   |- Total banned:     3
+   `- Banned IP list:   212.51.4.78
+```
+
+`sudo fail2ban-client set dovecot unbanip <IP_Adresi>` komutunu yazarak istemiş olduğunuz IP adresinin yasaklanmasını kaldırabilirsiniz.
+
+```
+root@ubuntu:~# sudo fail2ban-client set dovecot unbanip 212.51.4.78
+1
+root@ubuntu:~# sudo fail2ban-client status dovecot
+Status for the jail: dovecot
+|- Filter
+|  |- Currently failed: 0
+|  |- Total failed:     2
+|  `- File list:        /var/log/mail.log
+`- Actions
+   |- Currently banned: 0
+   |- Total banned:     3
+   `- Banned IP list:
+```
+
+`sudo fail2ban-client set dovecot banip <IP_Adresi>` komutunu yasarak istemiş olduğunuz IP adresini yasaklayabilirsiniz.
+
+```
+root@ubuntu:~# sudo fail2ban-client set dovecot banip 212.51.4.78
+1
+root@ubuntu:~# sudo fail2ban-client status dovecot
+Status for the jail: dovecot
+|- Filter
+|  |- Currently failed: 0
+|  |- Total failed:     2
+|  `- File list:        /var/log/mail.log
+`- Actions
+   |- Currently banned: 1
+   |- Total banned:     5
+   `- Banned IP list:   212.51.4.78
+root@ubuntu:~# 
+```
+
+
+
+
 
 ## Katkı
 
